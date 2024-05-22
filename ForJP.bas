@@ -657,15 +657,66 @@ Public Function GetTentantNewFormat(rangeInput As Range) As String
     result = result & "        ""cash_enable"": " & choice & "," & vbNewLine
 '    result = result & "        ""cash_enable"": " & rangeInput.Cells(1, 11).Value & "," & vbNewLine
     
-        If rangeInput.Cells(1, 15).Value = "使用する" Then
+    result = result & "        ""qr_code_setting"": {" & vbNewLine
+
+        If rangeInput.Cells(1, 14).Value = "使用する" Then
             choice = "true"
           Else
             choice = "false"
         End If
-    result = result & "        ""qr_code_enable"": " & choice & "," & vbNewLine
-'    result = result & "        ""qr_code_enable"": " & rangeInput.Cells(1, 12).Value & "," & vbNewLine
+    result = result & "            ""qr_code_enable"": " & choice & "," & vbNewLine
+
+    If rangeInput.Cells(1, 15).Value = "使用する" Then
+            choice = "true"
+          Else
+            choice = "false"
+        End If
+    result = result & "            ""ALIPAY"": " & choice & "," & vbNewLine
+
+    If rangeInput.Cells(1, 16).Value = "使用する" Then
+            choice = "true"
+          Else
+            choice = "false"
+        End If
+    result = result & "            ""WECHATPAY"": " & choice & "," & vbNewLine
+
+    If rangeInput.Cells(1, 17).Value = "使用する" Then
+            choice = "true"
+          Else
+            choice = "false"
+        End If
+    result = result & "            ""AEONPAY"": " & choice & "," & vbNewLine
+
+    If rangeInput.Cells(1, 18).Value = "使用する" Then
+            choice = "true"
+          Else
+            choice = "false"
+        End If
+    result = result & "            ""MERPAY"": " & choice & "," & vbNewLine
+
+    If rangeInput.Cells(1, 19).Value = "使用する" Then
+            choice = "true"
+          Else
+            choice = "false"
+        End If
+    result = result & "            ""ORIGAMI"": " & choice & "," & vbNewLine
+
+    If rangeInput.Cells(1, 20).Value = "使用する" Then
+            choice = "true"
+          Else
+            choice = "false"
+        End If
+    result = result & "            ""PAYPAY"": " & choice & "," & vbNewLine
+
+    If rangeInput.Cells(1, 21).Value = "使用する" Then
+            choice = "true"
+          Else
+            choice = "false"
+        End If
+    result = result & "            ""DBARAI"": " & choice & "" & vbNewLine
+    result = result & "        }," & vbNewLine
     
-        If rangeInput.Cells(1, 16).Value = "使用する" Then
+        If rangeInput.Cells(1, 22).Value = "使用する" Then
             choice = "true"
           Else
             choice = "false"
@@ -676,7 +727,7 @@ Public Function GetTentantNewFormat(rangeInput As Range) As String
     result = result & "    }," & vbNewLine & "    ""settlement_inspection_control"": {" & vbNewLine
     
     
-        If rangeInput.Cells(1, 17).Value = "使用する" Then
+        If rangeInput.Cells(1, 23).Value = "使用する" Then
             choice = "true"
           Else
             choice = "false"
@@ -684,7 +735,7 @@ Public Function GetTentantNewFormat(rangeInput As Range) As String
     result = result & "        ""duty_free_shop_control"": " & choice & "," & vbNewLine
 '    result = result & "        ""duty_free_shop_control"": " & rangeInput.Cells(1, 14).Value & "," & vbNewLine
 
-        If rangeInput.Cells(1, 18).Value = "使用する" Then
+        If rangeInput.Cells(1, 24).Value = "使用する" Then
             choice = "true"
           Else
             choice = "false"
@@ -695,11 +746,11 @@ Public Function GetTentantNewFormat(rangeInput As Range) As String
 
     result = result & "    }," & vbNewLine
     result = result & "    ""signature_note"": {" & vbNewLine
-    result = result & "        ""signature_note_without_password"": """ & rangeInput.Cells(1, 19).Value & """," & vbNewLine
-    result = result & "        ""signature_note_with_password"": """ & rangeInput.Cells(1, 20).Value & """" & vbNewLine
+    result = result & "        ""signature_note_without_password"": """ & rangeInput.Cells(1, 25).Value & """," & vbNewLine
+    result = result & "        ""signature_note_with_password"": """ & rangeInput.Cells(1, 26).Value & """" & vbNewLine
     result = result & "    }," & vbNewLine & "    ""qrpay"": {" & vbNewLine
-    result = result & "        ""qr_pay_card"": """ & rangeInput.Cells(1, 21).Value & """," & vbNewLine
-    result = result & "        ""qr_pay_charge"": """ & rangeInput.Cells(1, 22).Value & """" & vbNewLine & "    }" & vbNewLine
+    result = result & "        ""qr_pay_card"": """ & rangeInput.Cells(1, 27).Value & """," & vbNewLine
+    result = result & "        ""qr_pay_charge"": """ & rangeInput.Cells(1, 28).Value & """" & vbNewLine & "    }" & vbNewLine
     result = result & lang & "}"
 '2024.01.29 表示順入替 END
 
@@ -1259,10 +1310,3 @@ Public Function GetCalculationFormUnit(ByVal inputId As String, typeInput As Str
     End If
     GetCalculationFormUnit = output
 End Function
-
-
-
-
-
-
-
